@@ -21,16 +21,16 @@ public class Main {
             };
         }
 
-        //long startTime = System.currentTimeMillis();
+        long startTime = System.currentTimeMillis();
         List<Future<Integer>> futures = executor.invokeAll(List.of(tasks)); //tell executor to do tasks and get the result as a future (list gets made even when task is not complete and you don't have result)
         int count = 0;
 
         for (Future<Integer> future : futures)
             count += future.get();      //get waits until task is complete, then gets
 
-        //long endTime = System.currentTimeMillis();
+        long endTime = System.currentTimeMillis();
 
         System.out.println("Total count: " + count);
-       // System.out.println("Time taken: " + (endTime - startTime) + " milliseconds");
+        System.out.println("Time taken: " + (endTime - startTime) + " milliseconds");
     }
 }
